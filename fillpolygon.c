@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
 	double xp[100], yp[100], xq[50], yq[50];
 	int np, nq;
 
-	//G_init_graphics(600, 600);
+	G_init_graphics(600, 600);
 	if (argc == 3) {
 		np = read_polygon_from_file(argv[1], xp, yp);
 		nq = read_polygon_from_file(argv[2], xq, yq);
@@ -25,37 +25,15 @@ int main(int argc, char *argv[]) {
 		//np=click_polygon(xp, yp);
 		//G_rgb(1, 1, 1);
 		//G_clear();
-		//G_rgb(1, 0, 0);
-		//G_fill_rectangle(580, 580, 600, 600);
-		//nq=click_polygon(xq, yq);
+		G_rgb(1, 0, 0);
+		G_fill_rectangle(580, 580, 600, 600);
+		nq=click_polygon(xq, yq);
 		//G_rgb(1, 1, 1);
 		//G_clear();
 	}
 
-	//Testing
-	xp[0] = 445;
-	yp[0] = 511;
-	xp[1] = 446  ;
-	yp[1] = 512;
-	xp[2] = 253  ;
-	yp[2] = 446;
-	xp[3] = 112  ;
-	yp[3] = 253 ;
-	xp[4] =  94  ;
-	yp[4] = 112 ;
-	xp[5] =  94  ;
-	yp[5] = 234;
-	xp[6] = 234  ;
-	yp[6] = 290 ;
-	xp[7] = 290  ;
-	yp[7] = 514;
-	xp[8] = 512  ;
-	yp[8] = 514;
-
-	np = 9;
-
-	//G_rgb(0, 0, 0);
-	My_fill_polygon(xp, yp, np);
+	G_rgb(0, 0, 0);
+	My_fill_polygon(xq, yq, nq);
 
 	// if(perimeter(xp, yp, np) > perimeter(xq, yq, nq)) {
 	// 	G_rgb(1, 0, 0);
@@ -64,7 +42,7 @@ int main(int argc, char *argv[]) {
 	// 	G_rgb(0, 1, 0);
 	// 	My_fill_polygon(xq, yq, nq);
 	// }
-	//G_wait_key();
+	G_wait_key();
 }
 
 int click_polygon(double* x, double* y) {
@@ -149,7 +127,7 @@ void Get_Global_Edges(double all_edges[][4], int n, double global_edges[][4], in
 		global_edges[z][2] = all_edges[i][2];
 		global_edges[z][3] = all_edges[i][3];
 	}
-	printf("Global Edge Table:\n");
+	printf("Global Edge Table (%d):\n", global_edges_count);
 	Print_Edge_Array(global_edges, global_edges_count);
 }
 
@@ -165,8 +143,55 @@ void My_fill_polygon(double* x, double* y, int n) {
 	double global_edges[global_edges_count][4];
 	Get_Global_Edges(all_edges, n, global_edges, global_edges_count);
 
-}
+	int active_edges[global_edges_count]; //Max number of possible active edges is global_edges_count;
+	double scanline = global_edges[0][0]; //The initial scanline is the overall minimum y value
+	int active_count = 0;
+	while (scanline < global_edges[global_edges_count][1]) {
+		// for (int i=0; i<global_edges_count; i++) {
+		// 	if (global_edges[i][0] == scanline) {
+		// 		active_edges[active_edges_count][0] = scanline;
+		// 		active_edges[active_edges_count][1] = global_edges[i][1];
+		// 		active_edges[active_edges_count][2] = global_edges[i][2];
+		// 		active_edges[active_edges_count][3] = global_edges[i][3];
+		// 		active_edges_count++;
+		// 	}
+		// }
+		// for (int i=0; i<active_edges_count; i++) {
+		// 	G_rgb(i%2, 0, 0);
+		// 	G_line(active_edges[i][2], scanline, active_edges[(i+1)%active_edges_count][2], scanline);
+		// 	active_edges[i][2] += 1.0f/active_edges[i][3];
+		// 	active_edges[i][0] = scanline+1;
+		// 	G_wait_key();
+		// }
 
+		for (int i=0; i<global_edges_count; i++) {
+			if (global_edges[i][0] == scanline) {
+				active_edges[active_count] = i;
+				active_count++;
+			}
+		}
+		int curr;
+		int next;
+		double x1, x2, ymax, slope;
+		for (int i=0; i<active_count; i++) {
+			curr = active_edges[i];
+			next = active_edges[(i+1)%active_count];
+			x1 = global_edges[curr][2];
+			x2 = global_edges[next][2];
+			ymax = global_edges[curr][1];
+			slope = global_edges[curr][3];
+			G_wait_key();
+			G_rgb(i%2, 0, 0);
+			G_line(x1, scanline, x2, scanline);
+			if (scanline < ymax) {
+				global_edges[curr][2] += 1.0/slope;
+				global_edges[curr][0] += 1;
+			}
+		}
+		scanline+=1;
+	}
+
+}
 
 
 /* Take a polygon definition in the form of two lists of x, y
@@ -175,13 +200,20 @@ void My_fill_polygon(double* x, double* y, int n) {
  * The row format is [miny, maxy, x, slope].
  */
 void Get_All_Edges(double* x, double* y, int n, double edges[][4] ) {
-	int x_offset;
+	int x_offset, ymin_i;
+	double y1, y2, ymin, ymax, xmin, xmax;
 	for(int i=0; i<n; i++) {
-		edges[i][0] = fmin(y[i], y[(i+1)%n]);
-		edges[i][1] = fmax(y[i], y[(i+1)%n]);
-		x_offset = y[(i+1)%n] > y[i];
-		edges[i][2] = x[i+x_offset];
-		edges[i][3] = (y[(i+1)%n] - y[i]) / (x[(i+1)%n] - x[i]);
+		y1 = y[i];
+		y2 = y[(i+1)%n];
+		ymin_i = y1 < y2;
+		ymin = ymin_i? y[i] : y[(i+1)%n];
+		ymax = !ymin_i? y[i] : y[(i+1)%n];
+		xmin = ymin_i? x[i] : x[(i+1)%n];
+		xmax = !ymin_i? x[i] : x[(i+1)%n];
+		edges[i][0] = ymin;
+		edges[i][1] = ymax;
+		edges[i][2] = xmin;
+		edges[i][3] = (ymax - ymin)/(xmax-xmin);
 	}
 	printf("All Edge Table:\n");
 	Print_Edge_Array(edges, n);
