@@ -1,8 +1,9 @@
 #include <FPT.h>
+#include <qmlib.h>
+#include <math.h>
 #define true 1
 #define false 0;
 
-int read_points_from_file(char*, double*, double*);
 void draw_shape_from_file(char*, double*, double*, int);
 
 int main(int argc, char *argv[]) {
@@ -11,26 +12,10 @@ int main(int argc, char *argv[]) {
 	int n;
 	G_init_graphics(600, 600);
 	G_rgb(1, 0, 0);
-	n = read_points_from_file(argv[1], x, y);
+	n = read_points_from_file(fopen(argv[1], "r"), x, y);
+	rotate_polygon(x, y, n, 0.785);
 	draw_shape_from_file(argv[1], x, y, n);
 	G_wait_key();
-}
-
-int read_points_from_file(char* file, double* x, double* y) {
-	FILE *f;
-	int vertices;
-	f = fopen(file, "r");
-	if (f==NULL) {
-		printf("can't open file '%s'\n", file);
-		exit(1);
-	}
-	
-	fscanf(f, "%d\n", &vertices);
-	printf("%d points read\n", vertices);
-	for (int i=0; i<vertices; i++) {
-		fscanf(f, "%lf %lf", &x[i], &y[i]);
-	}
-	return vertices;
 }
 
 void draw_shape_from_file(char* file, double* x, double* y, int vertices) {
