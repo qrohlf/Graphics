@@ -1,0 +1,894 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"bou",
+				"bounding_box"
+			],
+			[
+				"in",
+				"intersections"
+			],
+			[
+				"int",
+				"intersections"
+			],
+			[
+				"num",
+				"num_intersects"
+			],
+			[
+				"max",
+				"maxY"
+			],
+			[
+				"ac",
+				"active_count"
+			],
+			[
+				"gl",
+				"global_edges"
+			],
+			[
+				"ym",
+				"ymax"
+			],
+			[
+				"glo",
+				"global_edges"
+			],
+			[
+				"ymin",
+				"ymin_i"
+			],
+			[
+				"G_wa",
+				"G_wait_key"
+			],
+			[
+				"act",
+				"active_edges"
+			],
+			[
+				"active_edges",
+				"active_edges_count"
+			],
+			[
+				"active",
+				"active_edges"
+			],
+			[
+				"glob",
+				"global_edges"
+			],
+			[
+				"go",
+				"global_edges_count"
+			],
+			[
+				"global",
+				"global_edge"
+			],
+			[
+				"Get",
+				"Get_Global_Edges"
+			],
+			[
+				"globa",
+				"global_edges_count"
+			],
+			[
+				"x",
+				"x_offset"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"acc",
+				"accent-dark"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"backg",
+				"background-darker"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"backgrou",
+				"background-color"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"padding",
+				"padding-bottom"
+			],
+			[
+				"do",
+				"do"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"resu",
+				"resume_xml"
+			],
+			[
+				"Res",
+				"ResumeObject"
+			],
+			[
+				"xml_",
+				"xml_object"
+			],
+			[
+				"xml",
+				"xml_object"
+			],
+			[
+				"res",
+				"res_obj"
+			],
+			[
+				"contac",
+				"contact"
+			],
+			[
+				"tang",
+				"tangents"
+			],
+			[
+				"section",
+				"section_attrib"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"item",
+				"item-date"
+			],
+			[
+				"hasTa",
+				"hasTag"
+			],
+			[
+				"has",
+				"hasTangent"
+			],
+			[
+				"data",
+				"data-tangents"
+			],
+			[
+				"sum",
+				"summary"
+			],
+			[
+				"slid",
+				"slideDown"
+			],
+			[
+				"resume",
+				"resume-section"
+			],
+			[
+				"slide",
+				"slideUp"
+			],
+			[
+				"tags",
+				"tagstring"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"min-",
+				"min-width"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"f",
+				"font-weight"
+			],
+			[
+				"head",
+				"header	Tag"
+			],
+			[
+				"te",
+				"text-transform"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"ss html",
+				"Set Syntax: HTML"
+			],
+			[
+				"ss ma",
+				"Set Syntax: Markdown"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"update",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"align",
+				"Preferences: Alignment Key Bindings – User"
+			],
+			[
+				"pak",
+				"Package Control: Remove Package"
+			],
+			[
+				"markdow",
+				"Markdown Preview: open Markdown Cheat sheet"
+			],
+			[
+				"mark",
+				"Markdown Preview: preview in Browser"
+			],
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"markd",
+				"Markdown Preview: preview in Browser"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"disab",
+				"Package Control: Disable Package"
+			],
+			[
+				"remove ",
+				"Package Control: Remove Package"
+			],
+			[
+				"lint",
+				"SublimeLinter: Extract Annotations"
+			],
+			[
+				"previe",
+				"Markdown Preview: preview in Browser"
+			]
+		],
+		"width": 647.0
+	},
+	"console":
+	{
+		"height": 304.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/qrohlf/Documents/Code/Graphics/daniscode.c",
+		"/Users/qrohlf/Documents/Code/Graphics/scratch.c",
+		"/Users/qrohlf/.bash_profile",
+		"/usr/bin/acom",
+		"/Users/qrohlf/Documents/Code/Graphics/lab1.c",
+		"/Users/qrohlf/Documents/Code/Graphics/fillpolygon.c",
+		"/Users/qrohlf/Documents/Code/minimo.co/index.html",
+		"/Users/qrohlf/Documents/Code/Graphics/qmlib.h",
+		"/Users/qrohlf/Documents/Code/Graphics/qmlib.c",
+		"/usr/local/etc/autojump.bash",
+		"/Users/qrohlf/.bashrc",
+		"/FPT/Source/X_graphics.c",
+		"/FPT/Source/X_graphics.",
+		"/FPT/Source/G_graphics.c",
+		"/FPT/Source/G_graphics.",
+		"/FPT/DotosC/compile_dotos",
+		"/FPT/acom",
+		"/Users/qrohlf/Dropbox/School/Debate Notes/Judges.md",
+		"/Users/qrohlf/Documents/Code/minimo.co/css/style.css",
+		"/Users/qrohlf/Documents/Code/minimo.co/style.scss",
+		"/Users/qrohlf/Documents/Code/CS383/.gitignore",
+		"/Users/qrohlf/.bash_pro",
+		"/Users/qrohlf/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/qrohlf/Documents/Code/minimo.co/_style.scss",
+		"/Users/qrohlf/Dropbox/School/Algo/Assignment1/A1-qrohlf.java",
+		"/Users/qrohlf/Dropbox/Notes/Debate file brainstorming.md",
+		"/Users/qrohlf/Dropbox/Notes/Speech drills.txt",
+		"/Users/qrohlf/Dropbox/Notes/Notes.sublime-project",
+		"/Users/qrohlf/Dropbox/Notes/birthday letter.txt",
+		"/Users/qrohlf/Dropbox/Notes/project ideas.md",
+		"/Users/qrohlf/Dropbox/Notes/Migration Steps.md",
+		"/Users/qrohlf/Dropbox/Notes/shopping.txt",
+		"/Users/qrohlf/Dropbox/Notes/todo.txt",
+		"/Users/qrohlf/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/qrohlf/Documents/TEMP/qrohlf.github.io.master/_includes/header.html",
+		"/Users/qrohlf/Documents/TEMP/qrohlf.github.io.master/_config.yml",
+		"/Users/qrohlf/.ssh/known_hosts",
+		"/Users/qrohlf/.ssh/config",
+		"/Users/qrohlf/Dropbox/Notes/todo.md",
+		"/Users/qrohlf/Documents/Code/Lisst/Lisst.rb",
+		"/etc/fstab",
+		"/Users/qrohlf/Dropbox/Notes/North sister climb notes.txt",
+		"/Users/qrohlf/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/private/etc/hosts",
+		"/Users/qrohlf/Library/Application Support/Sublime Text 2/Packages/User/Plain text.sublime-settings",
+		"/Users/qrohlf/Dropbox/Notes/foo.rb",
+		"/Users/qrohlf/Library/Application Support/Sublime Text 2/Packages/User/Markdown.sublime-settings",
+		"/Users/qrohlf/Library/Application Support/Sublime Text 2/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
+		"/Users/qrohlf/Library/Application Support/Sublime Text 2/Packages/User/MarkdownPreview.sublime-settings",
+		"/Users/qrohlf/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/X/QRohlf Accounts.txt",
+		"/C/Users/qrohlf/AppData/Local/Temp/c08c7107-7696-4acd-bc04-ac0858a4899e/whereis.qrohlf.com/index.html",
+		"/C/Users/qrohlf/Documents/GitHub/Lisst/config.ru",
+		"/C/Users/qrohlf/Documents/GitHub/Lisst/Lisst.rb",
+		"/C/Users/qrohlf/Documents/GitHub/Lisst/Gemfile",
+		"/C/Users/qrohlf/Dropbox/Notes/web design projects.txt",
+		"/C/Users/qrohlf/Dropbox/Notes/todo_old.txt",
+		"/C/Users/qrohlf/Dropbox/Notes/life simplification plan.txt",
+		"/C/Users/qrohlf/Dropbox/Notes/project ideas.txt",
+		"/C/Users/qrohlf/Dropbox/Notes/shopping.txt",
+		"/C/Users/qrohlf/Dropbox/Notes/todo.md",
+		"/C/Users/qrohlf/Documents/GitHub/routine/weekdays.md",
+		"/C/Users/qrohlf/Dropbox/Notes/project ideas.md",
+		"/C/Users/qrohlf/Desktop/triplog.txt",
+		"/C/Users/qrohlf/AppData/Local/Temp/9943f4cc-d498-4bdc-9e98-19f2a7057be9/public_html/eruby",
+		"/C/Users/qrohlf/AppData/Local/Temp/9943f4cc-d498-4bdc-9e98-19f2a7057be9/subdomains/whereis.qrohlf.com/test.html.erb",
+		"/C/Users/qrohlf/AppData/Local/Temp/9943f4cc-d498-4bdc-9e98-19f2a7057be9/subdomains/files.qrohlf.com/.htaccess",
+		"/C/Users/qrohlf/AppData/Local/Temp/9943f4cc-d498-4bdc-9e98-19f2a7057be9/subdomains/files.qrohlf.com/protected/.htaccess",
+		"/C/Users/qrohlf/AppData/Roaming/Sublime Text 2/Packages/Alignment/Default (Windows).sublime-keymap",
+		"/C/Users/qrohlf/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/qrohlf/Downloads/x4_install(1)/x4_install/install",
+		"/C/Users/qrohlf/AppData/Local/Temp/9943f4cc-d498-4bdc-9e98-19f2a7057be9/subdomains/whereis.qrohlf.com/.htaccess",
+		"/C/Users/qrohlf/Dropbox/Notes/todo.txt",
+		"/C/Users/qrohlf/Dropbox/PDXSW/livfly next steps.txt",
+		"/C/Users/qrohlf/Documents/GitHub/LivFly.co/main.css",
+		"/C/Users/qrohlf/Documents/GitHub/LivFly.co/_includes/footer.html",
+		"/C/Users/qrohlf/Documents/GitHub/qrohlf.github.io/projects.md",
+		"/X/Website Account Info/lawcommentator.com.txt",
+		"/C/Users/qrohlf/Desktop/Quinn Rohlf    Technologist_files/css",
+		"/C/Sites/sample_app/Gemfile",
+		"/C/Users/qrohlf/AppData/Local/Temp/65ba8697-de69-4498-be95-6cec5dceaed2/home/saltdesign/saltdesignpdx.com/wp-content/themes/artiste-sdp/style.css",
+		"/C/Users/qrohlf/AppData/Local/Temp/65ba8697-de69-4498-be95-6cec5dceaed2/home/saltdesign/saltdesignpdx.com/wp-content/themes/artiste-sdp/template-tumblr.php",
+		"/C/Users/qrohlf/AppData/Local/Temp/65ba8697-de69-4498-be95-6cec5dceaed2/home/saltdesign/saltdesignpdx.com/wp-content/themes/artiste-sdp/sidebar.php",
+		"/C/Users/qrohlf/AppData/Local/Temp/65ba8697-de69-4498-be95-6cec5dceaed2/home/saltdesign/saltdesignpdx.com/wp-content/themes/artiste-sdp/footer.php",
+		"/C/Users/qrohlf/AppData/Local/Temp/65ba8697-de69-4498-be95-6cec5dceaed2/home/saltdesign/saltdesignpdx.com/wp-content/themes/artiste-sdp/header.php",
+		"/C/Users/qrohlf/AppData/Local/Temp/65ba8697-de69-4498-be95-6cec5dceaed2/home/saltdesign/saltdesignpdx.com/wp-content/themes/artiste-sdp/page.php",
+		"/C/Users/qrohlf/AppData/Local/Temp/65ba8697-de69-4498-be95-6cec5dceaed2/home/saltdesign/saltdesignpdx.com/wp-content/themes/artiste-sdp/archive.php",
+		"/C/Users/qrohlf/AppData/Local/Temp/65ba8697-de69-4498-be95-6cec5dceaed2/home/saltdesign/saltdesignpdx.com/wp-content/themes/artiste-sdp/functions.php",
+		"/C/Users/qrohlf/AppData/Local/Temp/65ba8697-de69-4498-be95-6cec5dceaed2/home/saltdesign/saltdesignpdx.com/wp-content/themes/artiste-sdp/template-home.php",
+		"/C/Users/qrohlf/Documents/GitHub/qrohlf.github.io/_includes/header.html",
+		"/C/Users/qrohlf/AppData/Local/Temp/65ba8697-de69-4498-be95-6cec5dceaed2/home/saltdesign/saltdesignpdx.com/wp-content/themes/artiste-sdp/template-contact.php",
+		"/X/Website Account Info/waltronic.net-TODO.txt",
+		"/X/Website Account Info/saltdesignpdx.txt",
+		"/C/Users/qrohlf/AppData/Local/Temp/65ba8697-de69-4498-be95-6cec5dceaed2/home/saltdesign/saltdesignpdx.com/wp-content/themes/artiste-sdp/single-portfolio.php",
+		"/C/Users/qrohlf/Documents/GitHub/qrohlf.github.io/index.html",
+		"/C/Users/qrohlf/Documents/GitHub/qrohlf.github.io/about.md",
+		"/C/Users/qrohlf/Documents/GitHub/qrohlf.github.io/_layouts/page.html",
+		"/C/Users/qrohlf/Documents/GitHub/qrohlf.github.io/_layouts/post.html",
+		"/C/Users/qrohlf/Dropbox/Notes/apply.md",
+		"/C/Users/qrohlf/Documents/GitHub/qrohlf.github.io/main.js",
+		"/C/Users/qrohlf/Documents/GitHub/qrohlf.github.io/_includes/footer.html",
+		"/C/Users/qrohlf/Dropbox/Notes/big moments 2012.txt",
+		"/C/Users/qrohlf/Dropbox/Notes/Questions-.txt",
+		"/X/Website Account Info/lawcom notes.txt",
+		"/C/Users/qrohlf/Dropbox/Notes/digimarc interview notes.txt",
+		"/C/Users/qrohlf/Documents/GitHub/qrohlf.github.io/_posts/2013-4-17-troubleshooting-is-learing.md",
+		"/C/Users/qrohlf/Documents/GitHub/qrohlf.github.io/main.css",
+		"/C/Users/qrohlf/Documents/GitHub/web-dev-tools/font-face kits/Museo Slab/stylesheet.css",
+		"/C/Users/qrohlf/Documents/GitHub/excellentresume/resume.xml",
+		"/C/Users/qrohlf/Desktop/2013-5-8-untitled2.md",
+		"/C/Users/qrohlf/Documents/GitHub/qrohlf.github.io/contact.md",
+		"/C/Users/qrohlf/Documents/Web Development Resources/Icons and Stock Imagery/free-vector-user-interface-icons/readme.txt",
+		"/C/Program Files (x86)/Steam/steamapps/common/dota 2 beta/dota/cfg/mods.cfg",
+		"/C/Users/qrohlf/Documents/My Web Sites/No Brakes Design/wp-content/themes/quetzal/style.css",
+		"/C/Users/qrohlf/Documents/saltdesignpdx resources/Novecento font-face/stylesheet.css",
+		"/C/Users/qrohlf/AppData/Local/Temp/65ba8697-de69-4498-be95-6cec5dceaed2/home/saltdesign/saltdesignpdx.com/wp-content/themes/artiste-sdp/css/light.css",
+		"/C/Users/qrohlf/Documents/saltdesignpdx resources/Novecento font-face/demo.html",
+		"/C/Users/qrohlf/Dropbox/Notes/spring break.txt",
+		"/C/Users/qrohlf/AppData/Local/Temp/Temp1_Novecento wide Book.zip/web fonts/novecentowide_book_macroman/stylesheet.css",
+		"/C/Users/qrohlf/AppData/Local/Temp/Temp1_Novecento wide Medium.zip/web fonts/novecentowide_medium_macroman/stylesheet.css",
+		"/C/Users/qrohlf/AppData/Local/Temp/Temp1_Novecento wide Normal.zip/web fonts/novecentowide_normal_macroman/stylesheet.css",
+		"/C/Users/qrohlf/AppData/Local/Temp/Temp1_Novecento wide Light.zip/web fonts/novecentowide_light_macroman/stylesheet.css",
+		"/C/Users/qrohlf/AppData/Local/Temp/Temp1_Novecento wide DemiBold.zip/web fonts/novecentowide_demibold_macroman/stylesheet.css",
+		"/C/Users/qrohlf/AppData/Local/Temp/c08c7107-7696-4acd-bc04-ac0858a4899e/files.qrohlf.com/WVP-Redux/frontpage.html",
+		"/C/Users/qrohlf/AppData/Local/Temp/c08c7107-7696-4acd-bc04-ac0858a4899e/files.qrohlf.com/WVP-Redux/frontpage-national-recommendations.html",
+		"/C/Users/qrohlf/AppData/Local/Temp/c08c7107-7696-4acd-bc04-ac0858a4899e/files.qrohlf.com/WVP-Redux/frontpage-bostonchildrens.html",
+		"/C/Users/qrohlf/AppData/Local/Temp/c08c7107-7696-4acd-bc04-ac0858a4899e/files.qrohlf.com/WVP-Redux/docs/WVP Custom Branding Spec.doc",
+		"/C/Users/qrohlf/AppData/Local/Temp/65ba8697-de69-4498-be95-6cec5dceaed2/home/saltdesign/saltdesignpdx.com/wp-content/themes/artiste/sidebar.php"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"min",
+			"{a, b}",
+			"i",
+			"min",
+			"x",
+			"index",
+			"active_edges[i]",
+			"G_line",
+			"y[(n+1)",
+			"y[n]",
+			"global_edges",
+			"global_edge",
+			"Get_Global_Edges",
+			"echo",
+			"All_Edges",
+			"Get_All_Edges",
+			"All_Edges",
+			"all_edges",
+			"storage",
+			"XDrawLine",
+			"G_line",
+			"p {",
+			"B9BDA6",
+			"'",
+			"o",
+			"'",
+			"tab",
+			" 	",
+			"	",
+			"footer",
+			"313",
+			"medium",
+			"thumbnail",
+			".site-main",
+			"#main",
+			"images/bg.png",
+			"body {",
+			"font-family",
+			"font",
+			"Novecentowide-",
+			"footer",
+			"left",
+			"     ",
+			"      ",
+			"(?<!\\n)\\n(?!\\n)",
+			".\\n[.^\\n]",
+			".\\n[^\\n]",
+			".\\n",
+			".\\n\\r",
+			".\\n",
+			"\n",
+			":80",
+			".md",
+			"404",
+			"../assets/",
+			":\n",
+			"<li>",
+			"</li>",
+			"<li>",
+			"li",
+			"toHTML",
+			"res_obj",
+			"$resume",
+			"resume",
+			"xml_object",
+			"];\n",
+			"section_attrib",
+			"print",
+			"-",
+			"$roles",
+			"$tags",
+			"contactinfo",
+			"dialog",
+			"php",
+			"The included",
+			"ul.role li",
+			":active",
+			":hover",
+			"450ms",
+			"duration",
+			"'slow'",
+			"reset",
+			"Tangent",
+			"tangent",
+			"padding 450ms",
+			"600ms",
+			"400ms",
+			"section",
+			"c",
+			"tangents",
+			"tags",
+			"tags=\".[^\"]+\"",
+			"tags=\"\\S+\"",
+			"tags",
+			"all",
+			"400ms",
+			"pointer",
+			"expandable",
+			"all",
+			"25px",
+			"2",
+			"20px",
+			"10px",
+			"summary",
+			"api",
+			"language",
+			">\n",
+			"language",
+			"all",
+			"300ms",
+			"200ms",
+			"padding",
+			"100ms",
+			"25s",
+			".5s",
+			"ease",
+			"background-color",
+			"padding",
+			"all",
+			"moreinfo",
+			"h1",
+			"BebasNeue",
+			"BEBAS___",
+			" $",
+			"\\n",
+			"n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			">",
+			" ",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "/Users/qrohlf/Documents/Code/Graphics"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "/Users/qrohlf/Documents/Code/qmlib"
+		}
+	],
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 106.0
+	},
+	"project": "",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"proje",
+				"project ideas.md"
+			],
+			[
+				"shop",
+				"shopping.txt"
+			],
+			[
+				"web",
+				"web design projects.txt"
+			],
+			[
+				"trip",
+				"Personal Notes/trips.txt"
+			],
+			[
+				"sh",
+				"Personal Notes/shopping.txt"
+			],
+			[
+				"s",
+				"Personal Notes/shopping.txt"
+			],
+			[
+				"trips",
+				"Personal Notes/trips.txt"
+			],
+			[
+				"climb",
+				"Personal Notes/Climbing Team Email List.txt"
+			],
+			[
+				"to",
+				"Personal Notes/todo.txt"
+			],
+			[
+				"pro",
+				"Personal Notes/project ideas.txt"
+			],
+			[
+				"climbing",
+				"Personal Notes/Climbing Team Email List.txt"
+			],
+			[
+				"cli",
+				"Personal Notes/Climbing Team Email List.txt"
+			],
+			[
+				"ref",
+				"Personal Notes/reference.txt"
+			],
+			[
+				"todo",
+				"Personal Notes/todo.txt"
+			],
+			[
+				"sho",
+				"Personal Notes/shopping.txt"
+			],
+			[
+				"coll",
+				"Work Notes/LC College Outdoors Notes.txt"
+			],
+			[
+				"dele",
+				"Personal Notes/deleteme.txt"
+			],
+			[
+				"que",
+				"Work Notes/Questions.txt"
+			],
+			[
+				"workp",
+				"Work Notes/work plan.txt"
+			],
+			[
+				"tod",
+				"Personal Notes/todo.txt"
+			],
+			[
+				"proj",
+				"project ideas.txt"
+			],
+			[
+				"py",
+				"secretsanta.py"
+			],
+			[
+				"resum",
+				"resume.xml"
+			],
+			[
+				"cheat",
+				"/C/Users/qrohlf/Dropbox/Personal Documents/cheatsheet-sublime-text.md"
+			],
+			[
+				"idea",
+				"- items can have tags which are directly relevant"
+			],
+			[
+				"st",
+				"font/opensans/stylesheet.css"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/qrohlf/Documents/Code/qrohlf.github.io/qrohlf.github.io.sublime-project"
+			],
+			[
+				"li",
+				"/Users/qrohlf/Documents/Code/Lisst/Lisst.sublime-project"
+			],
+			[
+				"l",
+				"/Users/qrohlf/Documents/Code/Lisst/Lisst.sublime-project"
+			],
+			[
+				"qr",
+				"/C/Users/qrohlf/Documents/GitHub/qrohlf.github.io/qrohlf.github.io.sublime-project"
+			],
+			[
+				"sch",
+				"/C/Users/qrohlf/Dropbox/School/school.sublime-project"
+			],
+			[
+				"e",
+				"/C/Users/qrohlf/Documents/GitHub/excellentresume/excellentresume.sublime-project"
+			],
+			[
+				"sc",
+				"/C/Users/qrohlf/Dropbox/School/school.sublime-project"
+			],
+			[
+				"ex",
+				"/C/Users/qrohlf/Documents/GitHub/excellentresume/excellentresume.sublime-project"
+			],
+			[
+				"ev",
+				"/C/Users/qrohlf/Dropbox/Everyday Text Files/everyday.sublime-project"
+			],
+			[
+				"bw",
+				"/C/Users/qrohlf/Documents/GitHub/BetterWishlist/BetterWishlist.sublime-project"
+			],
+			[
+				"b",
+				"/C/Users/qrohlf/Documents/GitHub/BetterWishlist/BetterWishlist.sublime-project"
+			],
+			[
+				"be",
+				"/C/Users/qrohlf/Documents/GitHub/BetterWishlist/BetterWishlist.sublime-project"
+			],
+			[
+				"bett",
+				"/C/Users/qrohlf/Documents/GitHub/BetterWishlist/BetterWishlist.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 214.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
