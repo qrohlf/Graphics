@@ -50,6 +50,8 @@ int click_polygon(double* x, double* y) {
 		G_fill_circle(p[0], p[1], 2);
 		x[i] = p[0];
 		y[i] = p[1];
+
+		if (i>0) G_line(x[i], y[i], x[i-1], y[i-1]);
 		i++;
 	}
 	printf("Done clicking polygon\n");
@@ -103,7 +105,12 @@ void My_fill_polygon(double* x, double* y, int n) {
 			if (in_range(scanline, y[i], y[(i+1)%n])) {
 				m = (y[i]-y[(i+1)%n]) / (x[i] - x[(i+1)%n]);
 				b = y[i] - m*x[i];
-				intersections[num_intersects] = (scanline - b) / m;
+				if (isfinite(m)) {
+					intersections[num_intersects] = (scanline - b) / m;
+				} else if (m != 0) {
+					intersections[num_intersects] = x[i];
+				}
+				
 				num_intersects++;
 			}
 		}
