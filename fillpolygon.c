@@ -6,37 +6,43 @@
 
 int click_polygon(double*, double*);
 int read_polygon_from_file(char*, double*, double*);
-double perimeter(double*, double*, int);
 void My_fill_polygon(double*, double*, int);
 
 int main(int argc, char *argv[]) {
 	double xp[100], yp[100], xq[50], yq[50];
 	int np, nq;
-
 	G_init_graphics(600, 600);
-	if (argc == 3) {
-		np = read_polygon_from_file(argv[1], xp, yp);
-		nq = read_polygon_from_file(argv[2], xq, yq);
-	} else {
-		G_rgb(1, 0, 0);
-		G_fill_rectangle(580, 580, 600, 600);
-		np=click_polygon(xp, yp);
-		G_rgb(1, 1, 1);
-		G_clear();
-		G_rgb(1, 0, 0);
-		G_fill_rectangle(580, 580, 600, 600);
-		nq=click_polygon(xq, yq);
-		G_rgb(1, 1, 1);
-		G_clear();
-	}
+	G_rgb(1, 0, 0);
+	G_fill_rectangle(580, 580, 600, 600);
+	np=click_polygon(xp, yp);
+	//np = read_polygon_from_file(argv[1], xp, yp);
+	print_x_y(xp, yp, np);
+	G_rgb(0, 1, 0);
+	My_fill_polygon(xp, yp, np);
+	// G_init_graphics(600, 600);
+	// if (argc == 3) {
+	// 	np = read_polygon_from_file(argv[1], xp, yp);
+	// 	nq = read_polygon_from_file(argv[2], xq, yq);
+	// } else {
+	// 	G_rgb(1, 0, 0);
+	// 	G_fill_rectangle(580, 580, 600, 600);
+	// 	np=click_polygon(xp, yp);
+	// 	G_rgb(1, 1, 1);
+	// 	G_clear();
+	// 	G_rgb(1, 0, 0);
+	// 	G_fill_rectangle(580, 580, 600, 600);
+	// 	nq=click_polygon(xq, yq);
+	// 	G_rgb(1, 1, 1);
+	// 	G_clear();
+	// }
 
-	if(perimeter(xp, yp, np) > perimeter(xq, yq, nq)) {
-		G_rgb(1, 0, 0);
-		My_fill_polygon(xp, yp, np);
-	} else {
-		G_rgb(0, 1, 0);
-		My_fill_polygon(xq, yq, nq);
-	}
+	// if(perimeter(xp, yp, np) > perimeter(xq, yq, nq)) {
+	// 	G_rgb(1, 0, 0);
+	// 	My_fill_polygon(xp, yp, np);
+	// } else {
+	// 	G_rgb(0, 1, 0);
+	// 	My_fill_polygon(xq, yq, nq);
+	// }
 	G_wait_key();
 }
 
@@ -74,19 +80,13 @@ int read_polygon_from_file(char* file, double* x, double* y) {
 	return vertices;
 }
 
-
-double perimeter(double* x, double* y, int n) {
-	double perim = 0;
-	int j;
-
-	for(int i=0; i<n; i++) {
-	  j = (i+1)%n ;
-		perim += sqrt(pow(x[i]-x[j], 2)+pow(y[i]-y[j], 2));
-
-		printf("Perim: %f\n", perim);
+void print_x(double* x, int n) {
+	printf("%d\n", n);
+	for (int i = 0; i < n; ++i)
+	{
+		printf("%f ", x[i]);
 	}
-	printf("---\n");
-	return perim;
+	printf("\n");
 }
 
 void My_fill_polygon(double* x, double* y, int n) {
@@ -105,24 +105,38 @@ void My_fill_polygon(double* x, double* y, int n) {
 			if (in_range(scanline, y[i], y[(i+1)%n])) {
 				m = (y[i]-y[(i+1)%n]) / (x[i] - x[(i+1)%n]);
 				b = y[i] - m*x[i];
-				if (isfinite(m)) {
+				if (isfinite(m) && m != 0) {
 					intersections[num_intersects] = (scanline - b) / m;
-				} else if (m != 0) {
+					num_intersects++;
+				} else if (m == 0) {
+					continue;
+				}
+				else {
 					intersections[num_intersects] = x[i];
+					num_intersects++;
 				}
 				
-				num_intersects++;
+				
 			}
 		}
 
 		// Sort the intersections by x coordinate
 		sort_asc(intersections, num_intersects);
 
-		for (int i=0; i<num_intersects; i+=2) {
+		for (int i=0; i<num_intersects-1; i+=2) {
+			//if (i%3/2 == 1) continue;
+			G_rgb(0, i%2, 0);
 			G_line(intersections[i], scanline, intersections[i+1], scanline);
+			// if (G_wait_key() == 'a') {
+			// 	printf("i is %d\n", i);
+			// 	printf("intersections are: \n");
+			// 	print_x(intersections, num_intersects);
+			// }
 		}
 	}
 }
+
+
 
 
 

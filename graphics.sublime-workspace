@@ -4,12 +4,68 @@
 		"selected_items":
 		[
 			[
-				"bou",
-				"bounding_box"
+				"uppe",
+				"upperCase"
+			],
+			[
+				"index",
+				"indexOf"
+			],
+			[
+				"abou",
+				"abouty"
+			],
+			[
+				"ab",
+				"abouty"
+			],
+			[
+				"about",
+				"abouty"
+			],
+			[
+				"cente",
+				"centerx"
+			],
+			[
+				"rota",
+				"rotate_polygon_about"
+			],
+			[
+				"x",
+				"x_trans"
+			],
+			[
+				"cen",
+				"centery"
 			],
 			[
 				"in",
-				"intersections"
+				"include"
+			],
+			[
+				"sca",
+				"x_scale"
+			],
+			[
+				"center",
+				"centery"
+			],
+			[
+				"cent",
+				"centerx"
+			],
+			[
+				"y",
+				"y_scale"
+			],
+			[
+				"scal",
+				"scale_polygon_about"
+			],
+			[
+				"bou",
+				"bounding_box"
 			],
 			[
 				"int",
@@ -78,10 +134,6 @@
 			[
 				"globa",
 				"global_edges_count"
-			],
-			[
-				"x",
-				"x_offset"
 			],
 			[
 				"mar",
@@ -235,6 +287,22 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/Users/qrohlf/Documents/Code/qdmlib/qdmlib.c",
+			"settings":
+			{
+				"buffer_size": 4087,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "fillpolygon.c",
+			"settings":
+			{
+				"buffer_size": 2995,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -351,12 +419,29 @@
 	},
 	"file_history":
 	[
+		"/Users/qrohlf/Documents/Code/PLS/a1.hs",
 		"/Users/qrohlf/Documents/Code/Graphics/daniscode.c",
-		"/Users/qrohlf/Documents/Code/Graphics/scratch.c",
+		"/Users/qrohlf/Documents/Code/PLS/1.hs",
+		"/Users/qrohlf/Documents/Code/qdmlib/qdmlib.h",
+		"/Users/qrohlf/Documents/Code/qdmlib/graphics_template.c",
 		"/Users/qrohlf/.bash_profile",
+		"/Users/qrohlf/Documents/Code/qdmlib/D2d_matrix.c",
+		"/Users/qrohlf/Documents/Code/qdmlib/matrixstuff.c",
+		"/Users/qrohlf/Documents/Code/Graphics/D2d_matrix_test02.c",
+		"/Users/qrohlf/Documents/Code/Graphics/D2d_matrix.h",
+		"/Users/qrohlf/Documents/Code/Graphics/scratch.c",
+		"/Users/qrohlf/Documents/Code/qdmlib/matrixstuff.h",
 		"/usr/bin/acom",
-		"/Users/qrohlf/Documents/Code/Graphics/lab1.c",
+		"/Users/qrohlf/Documents/Code/qmlib/Readme.md",
+		"/Users/qrohlf/Documents/Code/qdmlib/qdmlib.c",
+		"/Users/qrohlf/Documents/Code/qmlib/qdmlib.h",
+		"/Users/qrohlf/Documents/Code/qmlib/qmlib.c",
 		"/Users/qrohlf/Documents/Code/Graphics/fillpolygon.c",
+		"/Users/qrohlf/Documents/Code/Graphics/shapedraw.c",
+		"/Users/qrohlf/Documents/Code/qmlib/qdmlib.c",
+		"/Users/qrohlf/.bash_pro",
+		"/Users/qrohlf/Documents/Code/qmlib/qmlib.h",
+		"/Users/qrohlf/Documents/Code/Graphics/lab1.c",
 		"/Users/qrohlf/Documents/Code/minimo.co/index.html",
 		"/Users/qrohlf/Documents/Code/Graphics/qmlib.h",
 		"/Users/qrohlf/Documents/Code/Graphics/qmlib.c",
@@ -372,7 +457,6 @@
 		"/Users/qrohlf/Documents/Code/minimo.co/css/style.css",
 		"/Users/qrohlf/Documents/Code/minimo.co/style.scss",
 		"/Users/qrohlf/Documents/Code/CS383/.gitignore",
-		"/Users/qrohlf/.bash_pro",
 		"/Users/qrohlf/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Users/qrohlf/Documents/Code/minimo.co/_style.scss",
 		"/Users/qrohlf/Dropbox/School/Algo/Assignment1/A1-qrohlf.java",
@@ -462,23 +546,7 @@
 		"/C/Users/qrohlf/Documents/GitHub/excellentresume/resume.xml",
 		"/C/Users/qrohlf/Desktop/2013-5-8-untitled2.md",
 		"/C/Users/qrohlf/Documents/GitHub/qrohlf.github.io/contact.md",
-		"/C/Users/qrohlf/Documents/Web Development Resources/Icons and Stock Imagery/free-vector-user-interface-icons/readme.txt",
-		"/C/Program Files (x86)/Steam/steamapps/common/dota 2 beta/dota/cfg/mods.cfg",
-		"/C/Users/qrohlf/Documents/My Web Sites/No Brakes Design/wp-content/themes/quetzal/style.css",
-		"/C/Users/qrohlf/Documents/saltdesignpdx resources/Novecento font-face/stylesheet.css",
-		"/C/Users/qrohlf/AppData/Local/Temp/65ba8697-de69-4498-be95-6cec5dceaed2/home/saltdesign/saltdesignpdx.com/wp-content/themes/artiste-sdp/css/light.css",
-		"/C/Users/qrohlf/Documents/saltdesignpdx resources/Novecento font-face/demo.html",
-		"/C/Users/qrohlf/Dropbox/Notes/spring break.txt",
-		"/C/Users/qrohlf/AppData/Local/Temp/Temp1_Novecento wide Book.zip/web fonts/novecentowide_book_macroman/stylesheet.css",
-		"/C/Users/qrohlf/AppData/Local/Temp/Temp1_Novecento wide Medium.zip/web fonts/novecentowide_medium_macroman/stylesheet.css",
-		"/C/Users/qrohlf/AppData/Local/Temp/Temp1_Novecento wide Normal.zip/web fonts/novecentowide_normal_macroman/stylesheet.css",
-		"/C/Users/qrohlf/AppData/Local/Temp/Temp1_Novecento wide Light.zip/web fonts/novecentowide_light_macroman/stylesheet.css",
-		"/C/Users/qrohlf/AppData/Local/Temp/Temp1_Novecento wide DemiBold.zip/web fonts/novecentowide_demibold_macroman/stylesheet.css",
-		"/C/Users/qrohlf/AppData/Local/Temp/c08c7107-7696-4acd-bc04-ac0858a4899e/files.qrohlf.com/WVP-Redux/frontpage.html",
-		"/C/Users/qrohlf/AppData/Local/Temp/c08c7107-7696-4acd-bc04-ac0858a4899e/files.qrohlf.com/WVP-Redux/frontpage-national-recommendations.html",
-		"/C/Users/qrohlf/AppData/Local/Temp/c08c7107-7696-4acd-bc04-ac0858a4899e/files.qrohlf.com/WVP-Redux/frontpage-bostonchildrens.html",
-		"/C/Users/qrohlf/AppData/Local/Temp/c08c7107-7696-4acd-bc04-ac0858a4899e/files.qrohlf.com/WVP-Redux/docs/WVP Custom Branding Spec.doc",
-		"/C/Users/qrohlf/AppData/Local/Temp/65ba8697-de69-4498-be95-6cec5dceaed2/home/saltdesign/saltdesignpdx.com/wp-content/themes/artiste/sidebar.php"
+		"/C/Users/qrohlf/Documents/Web Development Resources/Icons and Stock Imagery/free-vector-user-interface-icons/readme.txt"
 	],
 	"find":
 	{
@@ -496,6 +564,17 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"l",
+			"length",
+			"slope",
+			"&y",
+			"&x",
+			"scale_polygon",
+			",",
+			" ",
+			"y_scale",
+			"x_scale",
+			"vertices",
 			"min",
 			"{a, b}",
 			"i",
@@ -612,16 +691,7 @@
 			"25s",
 			".5s",
 			"ease",
-			"background-color",
-			"padding",
-			"all",
-			"moreinfo",
-			"h1",
-			"BebasNeue",
-			"BEBAS___",
-			" $",
-			"\\n",
-			"n"
+			"background-color"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -647,14 +717,72 @@
 		},
 		{
 			"follow_symlinks": true,
-			"path": "/Users/qrohlf/Documents/Code/qmlib"
+			"path": "/Users/qrohlf/Documents/Code/qdmlib"
 		}
 	],
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/Users/qrohlf/Documents/Code/qdmlib/qdmlib.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4087,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3871,
+								3871
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "fillpolygon.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2995,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2692,
+								2692
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],

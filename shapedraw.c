@@ -1,5 +1,5 @@
 #include <FPT.h>
-#include <qmlib.h>
+#include <qdmlib.h>
 #include <math.h>
 #define true 1
 #define false 0;
@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
 	G_init_graphics(600, 600);
 	G_rgb(1, 0, 0);
 	n = read_points_from_file(fopen(argv[1], "r"), x, y);
-	rotate_polygon(x, y, n, 0.785);
+	//rotate_polygon(x, y, n, 0.785);
 	draw_shape_from_file(argv[1], x, y, n);
 	G_wait_key();
 }
