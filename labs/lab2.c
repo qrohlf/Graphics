@@ -4,6 +4,21 @@
 #define true 1
 #define false 0;
 
+
+struct shape {
+	int num_vertices;
+	double xs[1000];
+	double yx[1000];
+	double R;
+	double G;
+	double B;
+};
+
+struct drawObject {
+	int num_shapes;
+	struct shape shapes[1000];
+};
+
 void draw_shape_from_file(char*, double*, double*, int);
 
 int main(int argc, char *argv[]) {
@@ -61,5 +76,14 @@ void draw_shape_from_file(char* file, double* x, double* y, int vertices) {
 		G_rgb(r, g, b);
 		G_fill_polygon(x1, y1, vertices);
 	}
+}
+
+/*
+ * constructs an object from a list of points, connections, and colors
+ */
+void make_drawObject(FILE* f) {
+	struct drawObject obj;
+	int num_points;
+	fscanf("%d", num_points);
 }
 	

@@ -4,6 +4,66 @@
 		"selected_items":
 		[
 			[
+				"nu",
+				"num_points"
+			],
+			[
+				"poin",
+				"point_index"
+			],
+			[
+				"num",
+				"num_vertices"
+			],
+			[
+				"shape",
+				"shape_ys"
+			],
+			[
+				"shape_",
+				"shape_xs"
+			],
+			[
+				"D2d_mat",
+				"D2d_mat_mult"
+			],
+			[
+				"tra",
+				"trans_inv"
+			],
+			[
+				"D2d",
+				"D2d_mat_mult"
+			],
+			[
+				"D2d_ma",
+				"D2d_mat_mult"
+			],
+			[
+				"thing",
+				"thing2"
+			],
+			[
+				"thin",
+				"thing1"
+			],
+			[
+				"D",
+				"D2d_matrix"
+			],
+			[
+				"D2",
+				"D2d_make_identity"
+			],
+			[
+				"pr",
+				"printf	printf …"
+			],
+			[
+				"prin",
+				"print_x"
+			],
+			[
 				"uppe",
 				"upperCase"
 			],
@@ -70,10 +130,6 @@
 			[
 				"int",
 				"intersections"
-			],
-			[
-				"num",
-				"num_intersects"
 			],
 			[
 				"max",
@@ -288,18 +344,43 @@
 	"buffers":
 	[
 		{
-			"file": "/Users/qrohlf/Documents/Code/qdmlib/qdmlib.c",
+			"file": "labs/lab2.c",
 			"settings":
 			{
-				"buffer_size": 4087,
+				"buffer_size": 2036,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "fillpolygon.c",
+			"file": "/Users/qrohlf/Documents/Code/qdmlib/qdmlib.c",
 			"settings":
 			{
-				"buffer_size": 2995,
+				"buffer_size": 4265,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/qrohlf/Documents/Code/qdmlib/tests/D2d_matrix_test02.c",
+			"settings":
+			{
+				"buffer_size": 685,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "int num_points = 25;\ndouble all_xs[] = {...};\ndouble all_ys[] = {...};\n\nint num_shapes = 7\n",
+			"settings":
+			{
+				"buffer_size": 91,
+				"line_ending": "Unix",
+				"name": "int num_points = 25;"
+			}
+		},
+		{
+			"file": "shapes/better_house.xy",
+			"settings":
+			{
+				"buffer_size": 857,
 				"line_ending": "Unix"
 			}
 		}
@@ -419,25 +500,31 @@
 	},
 	"file_history":
 	[
+		"/Users/qrohlf/Documents/Code/qdmlib/tests/D2d_matrix_test01.c",
+		"/Users/qrohlf/Documents/Code/qdmlib/tests/D2d_matrix_test02.c",
+		"/Users/qrohlf/Documents/Code/qdmlib/D2d_matrix.h",
+		"/Users/qrohlf/Documents/Code/Graphics/shapes/better_house.xy",
+		"/Users/qrohlf/Documents/Code/qdmlib/qdmlib.c",
+		"/Users/qrohlf/Documents/Code/qdmlib/D2d_matrix.c",
+		"/Users/qrohlf/Documents/Code/Graphics/shapedraw.c",
+		"/Users/qrohlf/Library/Containers/com.codeux.irc.textual/Data/Library/Application Support/Textual IRC/Styles/Simplified Light/design.css",
+		"/Users/qrohlf/Documents/Code/Graphics/fillpolygon.c",
+		"/Users/qrohlf/Documents/Code/Graphics/scratch.c",
+		"/Users/qrohlf/Documents/Code/Graphics/fillpoltest.xy",
 		"/Users/qrohlf/Documents/Code/PLS/a1.hs",
 		"/Users/qrohlf/Documents/Code/Graphics/daniscode.c",
 		"/Users/qrohlf/Documents/Code/PLS/1.hs",
 		"/Users/qrohlf/Documents/Code/qdmlib/qdmlib.h",
 		"/Users/qrohlf/Documents/Code/qdmlib/graphics_template.c",
 		"/Users/qrohlf/.bash_profile",
-		"/Users/qrohlf/Documents/Code/qdmlib/D2d_matrix.c",
 		"/Users/qrohlf/Documents/Code/qdmlib/matrixstuff.c",
 		"/Users/qrohlf/Documents/Code/Graphics/D2d_matrix_test02.c",
 		"/Users/qrohlf/Documents/Code/Graphics/D2d_matrix.h",
-		"/Users/qrohlf/Documents/Code/Graphics/scratch.c",
 		"/Users/qrohlf/Documents/Code/qdmlib/matrixstuff.h",
 		"/usr/bin/acom",
 		"/Users/qrohlf/Documents/Code/qmlib/Readme.md",
-		"/Users/qrohlf/Documents/Code/qdmlib/qdmlib.c",
 		"/Users/qrohlf/Documents/Code/qmlib/qdmlib.h",
 		"/Users/qrohlf/Documents/Code/qmlib/qmlib.c",
-		"/Users/qrohlf/Documents/Code/Graphics/fillpolygon.c",
-		"/Users/qrohlf/Documents/Code/Graphics/shapedraw.c",
 		"/Users/qrohlf/Documents/Code/qmlib/qdmlib.c",
 		"/Users/qrohlf/.bash_pro",
 		"/Users/qrohlf/Documents/Code/qmlib/qmlib.h",
@@ -540,13 +627,7 @@
 		"/C/Users/qrohlf/Dropbox/Notes/Questions-.txt",
 		"/X/Website Account Info/lawcom notes.txt",
 		"/C/Users/qrohlf/Dropbox/Notes/digimarc interview notes.txt",
-		"/C/Users/qrohlf/Documents/GitHub/qrohlf.github.io/_posts/2013-4-17-troubleshooting-is-learing.md",
-		"/C/Users/qrohlf/Documents/GitHub/qrohlf.github.io/main.css",
-		"/C/Users/qrohlf/Documents/GitHub/web-dev-tools/font-face kits/Museo Slab/stylesheet.css",
-		"/C/Users/qrohlf/Documents/GitHub/excellentresume/resume.xml",
-		"/C/Users/qrohlf/Desktop/2013-5-8-untitled2.md",
-		"/C/Users/qrohlf/Documents/GitHub/qrohlf.github.io/contact.md",
-		"/C/Users/qrohlf/Documents/Web Development Resources/Icons and Stock Imagery/free-vector-user-interface-icons/readme.txt"
+		"/C/Users/qrohlf/Documents/GitHub/qrohlf.github.io/_posts/2013-4-17-troubleshooting-is-learing.md"
 	],
 	"find":
 	{
@@ -564,6 +645,9 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"i",
+			"{\n\n}",
+			"i",
 			"l",
 			"length",
 			"slope",
@@ -688,10 +772,7 @@
 			"200ms",
 			"padding",
 			"100ms",
-			"25s",
-			".5s",
-			"ease",
-			"background-color"
+			"25s"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -709,38 +790,55 @@
 		"whole_word": false,
 		"wrap": true
 	},
-	"folders":
-	[
-		{
-			"follow_symlinks": true,
-			"path": "/Users/qrohlf/Documents/Code/Graphics"
-		},
-		{
-			"follow_symlinks": true,
-			"path": "/Users/qrohlf/Documents/Code/qdmlib"
-		}
-	],
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/Users/qrohlf/Documents/Code/qdmlib/qdmlib.c",
+					"file": "labs/lab2.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4087,
+						"buffer_size": 2036,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3871,
-								3871
+								2031,
+								2031
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 548.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/qrohlf/Documents/Code/qdmlib/qdmlib.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4265,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								416,
+								409
 							]
 						],
 						"settings":
@@ -756,26 +854,87 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "fillpolygon.c",
-					"semi_transient": false,
+					"buffer": 2,
+					"file": "/Users/qrohlf/Documents/Code/qdmlib/tests/D2d_matrix_test02.c",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 2995,
+						"buffer_size": 685,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2692,
-								2692
+								324,
+								324
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 91,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								91,
+								91
+							]
+						],
+						"settings":
+						{
+							"auto_name": "int num_points = 25;",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "shapes/better_house.xy",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 857,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								554,
+								554
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -803,11 +962,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.714305286501,
 			1.0
 		],
 		"rows":
@@ -821,7 +987,7 @@
 	{
 		"height": 106.0
 	},
-	"project": "",
+	"project": "graphics.sublime-project",
 	"replace":
 	{
 		"height": 64.0
@@ -832,6 +998,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"fil",
+				"Graphics/fillpolygon.c"
+			],
 			[
 				"proje",
 				"project ideas.md"
