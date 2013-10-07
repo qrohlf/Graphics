@@ -3,7 +3,9 @@
 #include <D2d_matrix.h>
 #include <math.h>
 #define true 1
-#define false 0;
+#define false 0
+#define CANVAS_X 600
+#define CANVAS_Y 600
 
 
 struct shape {
@@ -56,19 +58,54 @@ void draw_drawObject(struct drawObject obj) {
 	double x[1000];
 	double y[1000];
 	int point_index;
-	printf("%d shapes in object to draw\n", obj.num_shapes);
 	for (int i=0; i<obj.num_shapes; i++) {
 		s = &obj.shapes[i];
-		printf("%d vertices in shape %d\n", s->num_vertices, i);
 		for (int j=0; j<s->num_vertices; j++) {
 			point_index = s->vertices[j];
 			x[j] = obj.xs[point_index];
 			y[j] = obj.ys[point_index];
 		}
 		G_rgb(s->R, s->G, s->B);
-		printf("Color is %f %f %f\n", s->R, s->G, s->B);
 		G_fill_polygon(x, y, s->num_vertices);
 	}
+}
+
+void rotate_and_center(struct drawObject *obj) {
+	double maxX = max(obj->xs, obj->num_points);
+	double minX = min(obj->xs, obj->num_points);
+	double centerX = (maxX + minX)/2;
+	double maxY = max(obj->ys, obj->num_points);
+	double minY = min(obj->ys, obj->num_points);
+	double centerY = (maxY + minY)/2;
+	double m[3][3];
+	double useless[3][3];
+	D2d_make_identity(m);
+	D2d_translate(m, useless, -centerX, -centerY);
+	D2d_rotate(m, useless, M_PI/180.0);
+	D2d_translate(m, useless, CANVAS_X/2, CANVAS_Y/2);
+	D2d_mat_mult_points(obj->xs, obj->ys, m, obj->xs, obj->ys, obj->num_points);
+}
+
+void scale_to_fit(struct drawObject *obj) {
+	//lots of code duplication here to translate a shape to the origin.
+	//Todo: refactor this into something in qdmlib
+	double maxX = max(obj->xs, obj->num_points);
+	double minX = min(obj->xs, obj->num_points);
+	double centerX = (maxX + minX)/2;
+	double widthX = (maxX - minX);
+	double maxY = max(obj->ys, obj->num_points);
+	double minY = min(obj->ys, obj->num_points);
+	double centerY = (maxY + minY)/2;
+	double widthY = (maxY - minY);
+	double m[3][3];
+	double useless[3][3];
+	D2d_make_identity(m);
+	double scalefactor = 1;
+	D2d_translate(m, useless, -centerX, -centerY);
+	scalefactor = fmin((double)CANVAS_Y/widthY, (double)CANVAS_X/widthX);
+	D2d_scale(m, useless, scalefactor, scalefactor);
+	D2d_translate(m, useless, CANVAS_X/2, CANVAS_X/2);
+	D2d_mat_mult_points(obj->xs, obj->ys, m, obj->xs, obj->ys, obj->num_points);
 }
 
 int main(int argc, char *argv[]) {
@@ -85,7 +122,7 @@ int main(int argc, char *argv[]) {
 	}
 	printf("%d objects loaded. Press any digit to draw.\n", num_objects);
 	
-	G_init_graphics(600, 600);
+	G_init_graphics(CANVAS_X, CANVAS_Y);
 	int c;
 	int i;
 	double rot[3][3];
@@ -98,9 +135,12 @@ int main(int argc, char *argv[]) {
 		c = G_wait_key();
 		G_clear();
 		i = c - 48; //Convert ASCII character codes to digits
-		printf("i is %d\n", i);
 		if (i < num_objects+1 && i >= 1) {
-			D2d_mat_mult_points (objects[i-1].xs, objects[i-1].ys, rot, objects[i-1].xs, objects[i-1].ys, objects[i-1].num_points);
+			//Rotate the object
+			//D2d_mat_mult_points (objects[i-1].xs, objects[i-1].ys, rot, objects[i-1].xs, objects[i-1].ys, objects[i-1].num_points);
+			//Now scale and center it 
+			rotate_and_center(&objects[i-1]);
+			scale_to_fit(&objects[i-1]);
 			draw_drawObject(objects[i-1]);
 		} else {
 			printf("Invalid selection. Please press a key from 1-%d\n", num_objects);
