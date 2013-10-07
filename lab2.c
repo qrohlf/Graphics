@@ -32,7 +32,6 @@ struct drawObject {
 void make_drawObject(FILE* f, struct drawObject *obj) {
 	// Get the points
 	fscanf(f, "%d", &obj->num_points);
-	printf("num_points is %d\n", obj->num_points);
 	for (int i=0; i<obj->num_points; i++) {
 		fscanf(f, "%lf %lf", &obj->xs[i], &obj->ys[i]);
 	}
@@ -70,6 +69,20 @@ void draw_drawObject(struct drawObject obj) {
 	}
 }
 
+void initial_center(struct drawObject *obj) {
+	double maxX = max(obj->xs, obj->num_points);
+	double minX = min(obj->xs, obj->num_points);
+	double centerX = (maxX + minX)/2;
+	double maxY = max(obj->ys, obj->num_points);
+	double minY = min(obj->ys, obj->num_points);
+	double centerY = (maxY + minY)/2;
+	double m[3][3];
+	double useless[3][3];
+	D2d_make_identity(m);
+	D2d_translate(m, useless, -(centerX - CANVAS_X/2), -(centerY - CANVAS_Y/2));
+	D2d_mat_mult_points(obj->xs, obj->ys, m, obj->xs, obj->ys, obj->num_points);
+}
+
 void rotate_and_center(struct drawObject *obj) {
 	double maxX = max(obj->xs, obj->num_points);
 	double minX = min(obj->xs, obj->num_points);
@@ -80,8 +93,8 @@ void rotate_and_center(struct drawObject *obj) {
 	double m[3][3];
 	double useless[3][3];
 	D2d_make_identity(m);
-	D2d_translate(m, useless, -centerX, -centerY);
-	D2d_rotate(m, useless, M_PI/180.0);
+	D2d_translate(m, useless, -CANVAS_X/2, -CANVAS_Y/2);
+	D2d_rotate(m, useless, M_PI/90.0);
 	D2d_translate(m, useless, CANVAS_X/2, CANVAS_Y/2);
 	D2d_mat_mult_points(obj->xs, obj->ys, m, obj->xs, obj->ys, obj->num_points);
 }
@@ -101,8 +114,16 @@ void scale_to_fit(struct drawObject *obj) {
 	double useless[3][3];
 	D2d_make_identity(m);
 	double scalefactor = 1;
-	D2d_translate(m, useless, -centerX, -centerY);
-	scalefactor = fmin((double)CANVAS_Y/widthY, (double)CANVAS_X/widthX);
+	D2d_translate(m, useless, -CANVAS_X/2, -CANVAS_Y/2);
+	double farthestedge[] = {
+		fabs(maxX - CANVAS_X/2.0),
+		fabs(minX - CANVAS_X/2.0),
+		fabs(maxY - CANVAS_Y/2.0),
+		fabs(minY - CANVAS_Y/2.0)
+	};
+
+	scalefactor = 300/max(farthestedge, 4);
+
 	D2d_scale(m, useless, scalefactor, scalefactor);
 	D2d_translate(m, useless, CANVAS_X/2, CANVAS_X/2);
 	D2d_mat_mult_points(obj->xs, obj->ys, m, obj->xs, obj->ys, obj->num_points);
@@ -119,16 +140,13 @@ int main(int argc, char *argv[]) {
 			exit(1);
 		}
 		make_drawObject(f, &objects[i]);
+		initial_center(&objects[i]);
 	}
-	printf("%d objects loaded. Press any digit to draw.\n", num_objects);
+	printf("%d objects loaded. Press a key from 1-%d to draw.\n", num_objects, num_objects);
 	
 	G_init_graphics(CANVAS_X, CANVAS_Y);
 	int c;
 	int i;
-	double rot[3][3];
-	double rot_inv[3][3];
-	D2d_make_identity(rot);
-	D2d_rotate(rot, rot_inv, M_PI/180.0);
 	//D2d_make_identity(rot);
 	while(true) {
 		G_rgb(1, 1, 1);
