@@ -70,6 +70,8 @@ void draw_drawObject(struct drawObject obj) {
 }
 
 void initial_center(struct drawObject *obj) {
+	//lots of code duplication here with finding min/max x and center point
+	//Todo: refactor this into something in qdmlib
 	double maxX = max(obj->xs, obj->num_points);
 	double minX = min(obj->xs, obj->num_points);
 	double centerX = (maxX + minX)/2;
@@ -83,33 +85,11 @@ void initial_center(struct drawObject *obj) {
 	D2d_mat_mult_points(obj->xs, obj->ys, m, obj->xs, obj->ys, obj->num_points);
 }
 
-void rotate_and_center(struct drawObject *obj) {
-	double maxX = max(obj->xs, obj->num_points);
-	double minX = min(obj->xs, obj->num_points);
-	double centerX = (maxX + minX)/2;
-	double maxY = max(obj->ys, obj->num_points);
-	double minY = min(obj->ys, obj->num_points);
-	double centerY = (maxY + minY)/2;
-	double m[3][3];
-	double useless[3][3];
-	D2d_make_identity(m);
-	D2d_translate(m, useless, -CANVAS_X/2, -CANVAS_Y/2);
-	D2d_rotate(m, useless, M_PI/90.0);
-	D2d_translate(m, useless, CANVAS_X/2, CANVAS_Y/2);
-	D2d_mat_mult_points(obj->xs, obj->ys, m, obj->xs, obj->ys, obj->num_points);
-}
-
 void scale_to_fit(struct drawObject *obj) {
-	//lots of code duplication here to translate a shape to the origin.
-	//Todo: refactor this into something in qdmlib
 	double maxX = max(obj->xs, obj->num_points);
 	double minX = min(obj->xs, obj->num_points);
-	double centerX = (maxX + minX)/2;
-	double widthX = (maxX - minX);
 	double maxY = max(obj->ys, obj->num_points);
 	double minY = min(obj->ys, obj->num_points);
-	double centerY = (maxY + minY)/2;
-	double widthY = (maxY - minY);
 	double m[3][3];
 	double useless[3][3];
 	D2d_make_identity(m);
@@ -147,18 +127,26 @@ int main(int argc, char *argv[]) {
 	G_init_graphics(CANVAS_X, CANVAS_Y);
 	int c;
 	int i;
-	//D2d_make_identity(rot);
+	
+	//Initialize the rotation matrix
+	double rotate[3][3];
+	double useless[3][3];
+	D2d_make_identity(rotate);
+	D2d_translate(rotate, useless, -CANVAS_X/2, -CANVAS_Y/2);
+	D2d_rotate(rotate, useless, M_PI/90.0);
+	D2d_translate(rotate, useless, CANVAS_X/2, CANVAS_Y/2);
+
 	while(true) {
 		G_rgb(1, 1, 1);
 		c = G_wait_key();
 		G_clear();
 		i = c - 48; //Convert ASCII character codes to digits
 		if (i < num_objects+1 && i >= 1) {
-			//Rotate the object
-			//D2d_mat_mult_points (objects[i-1].xs, objects[i-1].ys, rot, objects[i-1].xs, objects[i-1].ys, objects[i-1].num_points);
-			//Now scale and center it 
-			rotate_and_center(&objects[i-1]);
+			// Rotate
+			D2d_mat_mult_points(objects[i-1].xs, objects[i-1].ys, rotate, objects[i-1].xs, objects[i-1].ys, objects[i-1].num_points);
+			// Scale to fit
 			scale_to_fit(&objects[i-1]);
+			// Render to screeen
 			draw_drawObject(objects[i-1]);
 		} else {
 			printf("Invalid selection. Please press a key from 1-%d\n", num_objects);
