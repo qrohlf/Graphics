@@ -75,17 +75,24 @@ void clip_line(shape* fig, point l1, point l2) {
         0, 
         {}, 
         {},
-        1,
+        0,
         0,
         0
     };
+    G_rgb(1, 0, 0);
+    G_line(l1.x, l1.y, l2.x, l2.y);
     for (int i=0; i<fig->n; i++) {
         point p1 = {fig->xs[i], fig->ys[i]};
         point p2 = {fig->xs[(i+1)%fig->n], fig->ys[(i+1)%fig->n]};
+        G_rgb(1, 0, 0);
+        G_line(p1.x, p1.y, p2.x, p2.y);
         if (isRight(p1, l1, l2)) {
             out.xs[out.n] = p1.x;
             out.ys[out.n] = p1.y;
             out.n++;
+            G_rgb(0, 1, 1);
+            G_fill_circle(p1.x, p1.y, 5);
+            G_wait_key();
         }
         point intersect;
         intersection(p1, p2, l1, l2, &intersect);
@@ -94,18 +101,48 @@ void clip_line(shape* fig, point l1, point l2) {
             out.xs[out.n] = intersect.x;
             out.ys[out.n] = intersect.y;
             out.n++;
+            G_rgb(0, 1, 1);
+            G_fill_circle(intersect.x, intersect.y, 5);
+            G_wait_key();
+            G_rgb(.8, .8, .8);
+            G_line(l1.x, l1.y, l2.x, l2.y);
         }
+        G_wait_key();
+        G_rgb(.8, .8, .8);
+        G_line(p1.x, p1.y, p2.x, p2.y);
     }
+    G_rgb(1, 1, 1);
+    G_clear();
+    draw(&out);
+    G_wait_key();
     *fig = out;
 }
 
 // Clip shape fig by shape window
 void clip(shape* fig, shape* win) {
-    for (int j=0; j<win->n; j++) {
-        point p3 = {win->xs[j], win->ys[j]};
-        point p4 = {win->xs[(j+1)%win->n], win->ys[(j+1)%win->n]};
-        clip_line(fig, p3, p4);
+    shape out = {
+        0, 
+        {}, 
+        {},
+        0,
+        0,
+        0
+    };
+    for (int i=0; i<fig->n; i++) {
+        point p1 = {fig->xs[i], fig->ys[i]};
+        point p2 = {fig->xs[(i+1)%fig->n], fig->ys[(i+1)%fig->n]};
+        G_rgb(1, 0, 0);
+        G_line(p1.x, p1.y, p2.x, p2.y);
+        for (int j=0; j<win->n; j++) {
+            point p3 = {win->xs[j], win->ys[j]};
+            point p4 = {win->xs[(j+1)%win->n], win->ys[(j+1)%win->n]};
+            clip_line(fig, p3, p4);
+            
+        }
+        G_rgb(.8, .8, .8);
+        G_line(p1.x, p1.y, p2.x, p2.y);
     }
+    draw(&out);
 }
 
 
@@ -120,9 +157,7 @@ void click_polygon(shape* fig) {
     double p[] = {0, 0};
     while(true) {
         G_wait_click(p);
-        if (p[0] > 580 && p[1] > 580) {
-            break;
-        }
+        if (p[0] > 580 && p[1] > 580) break;
         G_fill_circle(p[0], p[1], 2);
         fig->xs[i] = p[0];
         fig->ys[i] = p[1];
@@ -130,8 +165,6 @@ void click_polygon(shape* fig) {
         if (i>0) G_line(fig->xs[i], fig->ys[i], fig->xs[i-1], fig->ys[i-1]);
         i++;
     }
-
-    G_line(fig->xs[i-1], fig->ys[i-1], fig->xs[0], fig->ys[0]);
     printf("Done clicking polygon\n");
     fig->n = i;
 }
@@ -152,18 +185,8 @@ int main(int argc, char const *argv[]) {
     draw(&fig);
     shape window; 
     click_polygon(&window);
-    shape clipped = fig;
-    clip(&clipped, &window);
-    clipped.R = 0;
-    clipped.G = 1;
-    clipped.B = 1;
     G_rgb(1, 1, 1);
-    G_clear();
-    G_rgb(0, 1, 0);
-    G_polygon(fig.xs, fig.ys, fig.n);
-    G_rgb(0, 0, 1);
-    G_polygon(window.xs, window.ys, window.n);
-    draw(&clipped); //Blue
+    clip(&fig, &window);
 
 
     // G_rgb(0, 1, 0);
