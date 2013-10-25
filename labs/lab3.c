@@ -121,10 +121,6 @@ void clip(shape* fig, shape* win) {
     }
 }
 
-
-
-
-
 void click_polygon(shape* fig) {
     G_rgb(.5, 0, 0);
     G_fill_rectangle(580, 580, 600, 600);
@@ -152,8 +148,12 @@ void click_polygon(shape* fig) {
 
 int main(int argc, char const *argv[]) {
     G_init_graphics(CANVAS_X, CANVAS_Y);
+    
+    shape fig = {0, {}, {}, .8, .8, .8};
+    shape window;
+
     //Testing data
-    // shape fig = {
+    // fig = {
     //     10, 
     //     {240,  85, 169, 459, 526, 305, 529, 459, 177,  30}, 
     //     {262, 353, 479, 543, 369, 411, 165,  47, 101, 204},
@@ -161,20 +161,20 @@ int main(int argc, char const *argv[]) {
     //     .8,
     //     .8
     // };
-    shape fig;
-    click_polygon(&fig);
-    draw(&fig);
-    // shape window = {
+    // window = {
     //     4,
     //     {200, 200, 400, 400},
     //     {200, 400, 400, 200},
     //     .8,
     //     .8,
     //     .8
-
     // };
-    shape window;
+
+    click_polygon(&fig);
+    draw(&fig); //Gray
     click_polygon(&window);
+
+
     shape clipped = fig;
     clip(&clipped, &window);
     clipped.R = 0;
@@ -183,20 +183,10 @@ int main(int argc, char const *argv[]) {
     G_rgb(1, 1, 1);
     G_clear();
     G_rgb(0, 1, 0);
-    G_polygon(fig.xs, fig.ys, fig.n);
+    G_polygon(fig.xs, fig.ys, fig.n); //Outline original shape in green
     G_rgb(0, 0, 1);
-    G_polygon(window.xs, window.ys, window.n);
-    draw(&clipped); //Blue
-
-
-    // G_rgb(0, 1, 0);
-    // G_line(p1.x, p1.y, p2.x, p2.y);
-    // G_rgb(0, 0, 1);
-    // G_line(p3.x, p3.y, p4.x, p4.y);
-    // point intersect;
-    // intersection(p1, p2, p3, p4, &intersect);
-    // G_rgb(0, 1, 1);
-    // G_fill_circle(intersect.x, intersect.y, 5);
-     G_wait_key();
+    G_polygon(window.xs, window.ys, window.n); //Outline clipping window in blue
+    draw(&clipped); //Draw clipped shape in blue-green
+    G_wait_key();
     return 0;
 }
