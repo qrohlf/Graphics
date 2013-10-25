@@ -45,6 +45,18 @@ void intersection(
     //j1.y = mj (j1.x) + bj
     double bj = j1.y - mj*j1.x;
     printf("Intercept of line 2 is %f\n", bj);
+    if (!isfinite(mp)) {
+        //p1-p2 is a vertical line
+        intersect->x = p1.x;
+        intersect->y = mj * intersect->x + bj;
+        return;
+    }
+    if (!isfinite(mj)) {
+        //j1-j2 is a vertical line
+        intersect->x = j1.x;
+        intersect->y = mp * intersect->x + bp;
+        return;
+    }
     //y = mp * x + bp
     //y = mj * x + bj
     //mj*x + bj = mp*x + bp
@@ -65,8 +77,9 @@ int p_in_range(point a, point b, point c) {
 
 }
 
+// Use the cross product to tell if a point is on the right or colinear of the line bc
 int isRight(point a, point b, point c){
-     return ((b.x - a.x)*(c.y - a.y) - (b.y - a.y)*(c.x - a.x)) < 0;
+     return ((b.x - a.x)*(c.y - a.y) - (b.y - a.y)*(c.x - a.x)) <= 0;
 }
 
 // Clip shape fig by a single line
@@ -140,17 +153,27 @@ void click_polygon(shape* fig) {
 int main(int argc, char const *argv[]) {
     G_init_graphics(CANVAS_X, CANVAS_Y);
     //Testing data
-    shape fig = {
-        0, 
-        {}, 
-        {},
-        .8,
-        .8,
-        .8
-    };
+    // shape fig = {
+    //     10, 
+    //     {240,  85, 169, 459, 526, 305, 529, 459, 177,  30}, 
+    //     {262, 353, 479, 543, 369, 411, 165,  47, 101, 204},
+    //     .8,
+    //     .8,
+    //     .8
+    // };
+    shape fig;
     click_polygon(&fig);
     draw(&fig);
-    shape window; 
+    // shape window = {
+    //     4,
+    //     {200, 200, 400, 400},
+    //     {200, 400, 400, 200},
+    //     .8,
+    //     .8,
+    //     .8
+
+    // };
+    shape window;
     click_polygon(&window);
     shape clipped = fig;
     clip(&clipped, &window);
