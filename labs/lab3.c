@@ -1,4 +1,5 @@
 #include <FPT.h>
+#include <qdmlib.h>
 #define true 1
 #define false 0
 #define CANVAS_X 600
@@ -18,6 +19,12 @@ typedef struct {
     double x;
     double y;
 } point;
+
+// Draw fig
+void draw(shape* fig) {
+    G_rgb(fig->R, fig->G, fig->B);
+    G_fill_polygon(fig->xs, fig->ys, fig->n);
+}
 
 // Retern the intersection
 void intersection(
@@ -49,36 +56,98 @@ void intersection(
     printf("Intersection y is %f\n", intersect->y);
 }
 
-// Clip shape fig by shape window
-void clip(shape* fig, shape* window) {
-    for (int i=0; i<window->n; i++) {
-        point p1 = {window->xs[i], window->ys[i]};
-        point p2 = {window->xs[(i+1)%window->n], window->ys[(i+1)%window->n]};
+int p_in_range(point a, point b, point c) {
+    double xmax = fmax(b.x, c.x);
+    double xmin = fmin(b.x, c.x);
+    double ymax = fmax(b.y, c.y);
+    double ymin = fmin(b.y, c.y);
+    return (in_range(a.x, xmin, xmax) && in_range(a.y, ymin, ymax));
+
+}
+
+int isRight(point a, point b, point c){
+     return ((b.x - a.x)*(c.y - a.y) - (b.y - a.y)*(c.x - a.x)) < 0;
+}
+
+// Clip shape fig by a single line
+void clip_line(shape* fig, point l1, point l2) {
+    shape out = {
+        0, 
+        {}, 
+        {},
+        0,
+        0,
+        0
+    };
+    G_rgb(1, 0, 0);
+    G_line(l1.x, l1.y, l2.x, l2.y);
+    for (int i=0; i<fig->n; i++) {
+        point p1 = {fig->xs[i], fig->ys[i]};
+        point p2 = {fig->xs[(i+1)%fig->n], fig->ys[(i+1)%fig->n]};
         G_rgb(1, 0, 0);
         G_line(p1.x, p1.y, p2.x, p2.y);
-        for (int j=0; j<fig->n; j++) {
-            point p3 = {fig->xs[j], fig->ys[j]};
-            point p4 = {fig->xs[(j+1)%fig->n], fig->ys[(j+1)%fig->n]};
-            G_rgb(1, 0, 0);
-            G_line(p3.x, p3.y, p4.x, p4.y);
-            point intersect;
-            intersection(p1, p2, p3, p4, &intersect);
+        if (isRight(p1, l1, l2)) {
+            out.xs[out.n] = p1.x;
+            out.ys[out.n] = p1.y;
+            out.n++;
+            G_rgb(0, 1, 1);
+            G_fill_circle(p1.x, p1.y, 5);
+            G_wait_key();
+        }
+        point intersect;
+        intersection(p1, p2, l1, l2, &intersect);
+        if (in_range(intersect.x, p1.x, p2.x) && in_range(intersect.y, p1.y, p2.y)) {
+            
+            out.xs[out.n] = intersect.x;
+            out.ys[out.n] = intersect.y;
+            out.n++;
             G_rgb(0, 1, 1);
             G_fill_circle(intersect.x, intersect.y, 5);
             G_wait_key();
             G_rgb(.8, .8, .8);
-            G_line(p3.x, p3.y, p4.x, p4.y);
+            G_line(l1.x, l1.y, l2.x, l2.y);
+        }
+        G_wait_key();
+        G_rgb(.8, .8, .8);
+        G_line(p1.x, p1.y, p2.x, p2.y);
+    }
+    G_rgb(1, 1, 1);
+    G_clear();
+    draw(&out);
+    G_wait_key();
+    *fig = out;
+}
+
+// Clip shape fig by shape window
+void clip(shape* fig, shape* win) {
+    shape out = {
+        0, 
+        {}, 
+        {},
+        0,
+        0,
+        0
+    };
+    for (int i=0; i<fig->n; i++) {
+        point p1 = {fig->xs[i], fig->ys[i]};
+        point p2 = {fig->xs[(i+1)%fig->n], fig->ys[(i+1)%fig->n]};
+        G_rgb(1, 0, 0);
+        G_line(p1.x, p1.y, p2.x, p2.y);
+        for (int j=0; j<win->n; j++) {
+            point p3 = {win->xs[j], win->ys[j]};
+            point p4 = {win->xs[(j+1)%win->n], win->ys[(j+1)%win->n]};
+            clip_line(fig, p3, p4);
+            
         }
         G_rgb(.8, .8, .8);
         G_line(p1.x, p1.y, p2.x, p2.y);
     }
+    draw(&out);
 }
 
-// Draw fig
-void draw(shape* fig) {
-    G_rgb(fig->R, fig->G, fig->B);
-    G_polygon(fig->xs, fig->ys, fig->n);
-}
+
+
+
 
 void click_polygon(shape* fig) {
     G_rgb(.5, 0, 0);
@@ -105,19 +174,19 @@ int main(int argc, char const *argv[]) {
     G_init_graphics(CANVAS_X, CANVAS_Y);
     //Testing data
     shape fig = {
-        4, 
-        {300, 400, 300, 200}, 
-        {400, 300, 200, 300},
+        0, 
+        {}, 
+        {},
         .8,
         .8,
         .8
     };
+    click_polygon(&fig);
     draw(&fig);
     shape window; 
     click_polygon(&window);
     G_rgb(1, 1, 1);
     clip(&fig, &window);
-    draw(&fig);
 
 
     // G_rgb(0, 1, 0);
