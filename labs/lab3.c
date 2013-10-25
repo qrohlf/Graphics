@@ -6,7 +6,7 @@
 
 // Shape type definition
 typedef struct {
-    int num_vertices;   // Number of vertices in this shape
+    int n;   // Number of vertices in this shape
     double xs[100];     // Array of vertex x-coordinates
     double ys[100];     // Y-coords
     double R;           // Red
@@ -46,33 +46,38 @@ void intersection(
     intersect->x = (bp - bj)/(mj - mp);
     printf("Intersection x is %f\n", intersect->x);
     intersect->y = mp * intersect->x + bp;
+    printf("Intersection y is %f\n", intersect->y);
 }
 
 // Clip shape fig by shape window
 void clip(shape* fig, shape* window) {
-    shape output;
-    int next;
-    for (int i=0; i<window->num_vertices; i++) {
-        //for each edge of the clip polygon...
-        point c1 = {window->xs[i], window->ys[i]};
-        next = (i+1)%window->num_vertices;
-        point c2 = {window->xs[next], window->ys[next]};
-        for (int j=0; j<fig->num_vertices; j++) {
+    for (int i=0; i<window->n; i++) {
+        point p1 = {window->xs[i], window->ys[i]};
+        point p2 = {window->xs[(i+1)%window->n], window->ys[(i+1)%window->n]};
+        G_rgb(1, 0, 0);
+        G_line(p1.x, p1.y, p2.x, p2.y);
+        for (int j=0; j<fig->n; j++) {
+            point p3 = {fig->xs[j], fig->ys[j]};
+            point p4 = {fig->xs[(j+1)%fig->n], fig->ys[(j+1)%fig->n]};
+            G_rgb(1, 0, 0);
+            G_line(p3.x, p3.y, p4.x, p4.y);
             point intersect;
-            int next2 = (i+1)%fig->num_vertices;
-            point p1 = {fig->xs[j], fig->ys[j]};
-            point p2 = {fig->xs[next2], fig->ys[next2]};
-            intersection(c1, c2, p1, p1, &intersect);
+            intersection(p1, p2, p3, p4, &intersect);
             G_rgb(0, 1, 1);
             G_fill_circle(intersect.x, intersect.y, 5);
+            G_wait_key();
+            G_rgb(.8, .8, .8);
+            G_line(p3.x, p3.y, p4.x, p4.y);
         }
+        G_rgb(.8, .8, .8);
+        G_line(p1.x, p1.y, p2.x, p2.y);
     }
 }
 
 // Draw fig
 void draw(shape* fig) {
     G_rgb(fig->R, fig->G, fig->B);
-    G_polygon(fig->xs, fig->ys, fig->num_vertices);
+    G_polygon(fig->xs, fig->ys, fig->n);
 }
 
 void click_polygon(shape* fig) {
@@ -92,39 +97,37 @@ void click_polygon(shape* fig) {
         i++;
     }
     printf("Done clicking polygon\n");
-    fig->num_vertices = i+1;
+    fig->n = i;
 }
 
 
 int main(int argc, char const *argv[]) {
     G_init_graphics(CANVAS_X, CANVAS_Y);
-    // Testing data
-    // shape fig = {
-    //     13, 
-    //     {224, 92, 122, 202, 383, 364, 519, 317, 238, 427, 476, 240, 321}, 
-    //     {534, 409, 192, 262, 158, 114, 216, 316, 314, 349, 436, 436, 543},
-    //     1,
-    //     .5,
-    //     1
-    // };
-    // draw(&fig);
-    // shape window; 
-    // click_polygon(&window);
-    // G_rgb(1, 1, 1);
-    // clip(&fig, &window);
-    // draw(&fig);
-    point p1 = {50, 50};
-    point p2 = {500, 500};
-    point p3 = {20, 550};
-    point p4 = {500, 10};
-    G_rgb(0, 1, 0);
-    G_line(p1.x, p1.y, p2.x, p2.y);
-    G_rgb(0, 0, 1);
-    G_line(p3.x, p3.y, p4.x, p4.y);
-    point intersect;
-    intersection(p1, p2, p3, p4, &intersect);
-    G_rgb(0, 1, 1);
-    G_fill_circle(intersect.x, intersect.y, 5);
-    G_wait_key();
+    //Testing data
+    shape fig = {
+        4, 
+        {300, 400, 300, 200}, 
+        {400, 300, 200, 300},
+        .8,
+        .8,
+        .8
+    };
+    draw(&fig);
+    shape window; 
+    click_polygon(&window);
+    G_rgb(1, 1, 1);
+    clip(&fig, &window);
+    draw(&fig);
+
+
+    // G_rgb(0, 1, 0);
+    // G_line(p1.x, p1.y, p2.x, p2.y);
+    // G_rgb(0, 0, 1);
+    // G_line(p3.x, p3.y, p4.x, p4.y);
+    // point intersect;
+    // intersection(p1, p2, p3, p4, &intersect);
+    // G_rgb(0, 1, 1);
+    // G_fill_circle(intersect.x, intersect.y, 5);
+     G_wait_key();
     return 0;
 }
