@@ -14,7 +14,11 @@ double x_ccw[4][4],
     z_ccw[4][4],
     z_cw[4][4],
     x_minus[4][4],
-    x_plus[4][4];
+    x_plus[4][4],
+    y_minus[4][4],
+    y_plus[4][4],
+    z_minus[4][4],
+    z_plus[4][4];
 
 void setup_matrices() {
     D3d_make_identity(x_ccw);
@@ -28,7 +32,13 @@ void setup_matrices() {
     D3d_rotate_z(z_ccw, z_cw, M_PI/90);
     D3d_make_identity(x_plus);
     D3d_make_identity(x_minus);
-    D3d_translate(x_plus, x_minus, .5, 0, 0);
+    D3d_translate(x_plus, x_minus, .2, 0, 0);
+    D3d_make_identity(y_plus);
+    D3d_make_identity(y_minus);
+    D3d_translate(y_plus, y_minus, 0, .2, 0);
+    D3d_make_identity(z_plus);
+    D3d_make_identity(z_minus);
+    D3d_translate(z_plus, z_minus, 0, 0, .2);
 }
 
 int main(int argc, char const *argv[]) {
@@ -68,18 +78,35 @@ int main(int argc, char const *argv[]) {
                 //Right arrow key
                 transform_object3d(&obj, y_cw);
                 break;
+            case 'w':
+                transform_object3d(&obj, y_plus);
+                break;
             case 'a':
                 transform_object3d(&obj, x_minus);
+                break;
+            case 's':
+                transform_object3d(&obj, y_minus);
                 break;
             case 'd':
                 transform_object3d(&obj, x_plus);
                 break;
-            case '+':
+            case 'q':
+                transform_object3d(&obj, z_minus);
+                break;
+            case 'e':
+                transform_object3d(&obj, z_plus);
+                break;
             case '=':
                 viewdistance -= .2;
                 break;
             case '-':
                 viewdistance += .2;
+                break;
+            case '+':
+                fov += 10;
+                break;
+            case '_':
+                fov -= 10;
                 break;
             case 32:
                 //Spacebar
