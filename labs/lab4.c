@@ -7,6 +7,9 @@
 #define CANVAS_X 600
 #define CANVAS_Y 600
 
+double fov;
+double viewdistance;
+
 double x_ccw[4][4], 
     x_cw[4][4], 
     y_ccw[4][4], 
@@ -46,6 +49,7 @@ void setup_matrices() {
     D3d_scale(all_scale_up, all_scale_down, 1.005, 1.005, 1.005);
 }
 
+
 int main(int argc, char const *argv[]) {
     object3d objs[9];
     for (int i=1; i<argc; i++) {
@@ -56,8 +60,8 @@ int main(int argc, char const *argv[]) {
     setup_matrices();
     
     char c, i;
-    double fov = M_PI/8.0;
-    double viewdistance = max(obj->zs, obj->n)+10;
+    fov = M_PI/8.0;
+    viewdistance = max(obj->zs, obj->n)+10;
     printf("initial viewdistance is %f\n", viewdistance);
     // double ztrans[4][4], useless[4][4];
     // D3d_make_identity(ztrans);
