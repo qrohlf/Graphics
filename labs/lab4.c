@@ -80,19 +80,19 @@ int main(int argc, char const *argv[]) {
         switch (c) {
             case 84:
                 //Down arrow key
-                transform_object3d(obj, x_cw);
+                object3d_rotate(obj, -M_PI/60, 0, 0);
                 break;
             case 82:
                 //Up arrow key
-                transform_object3d(obj, x_ccw);
+                object3d_rotate(obj, M_PI/60, 0, 0);
                 break;
             case 81:
                 //Left arrow key
-                transform_object3d(obj, y_ccw);
+                object3d_rotate(obj, 0, M_PI/60, 0);
                 break;
             case 83:
                 //Right arrow key
-                transform_object3d(obj, y_cw);
+                object3d_rotate(obj, 0, -M_PI/60, 0);
                 break;
             case 'w':
                 transform_object3d(obj, y_plus);
