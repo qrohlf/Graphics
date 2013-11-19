@@ -136,7 +136,7 @@ int main(int argc, char const *argv[]) {
                 //Spacebar
                 break;
         }
-        G_rgb(1, 1, 1);
+        G_rgb(.1, .1, .1);
         G_clear();
         for (int j=0; j<argc; j++) {
             draw_object3d(&objs[j], fov, viewdistance);
@@ -145,6 +145,7 @@ int main(int argc, char const *argv[]) {
         sprintf(fovstring, "Fov: %.3f rad", fov);
         char camerastring[128];
         sprintf(camerastring, "Camera: x:0 y:0 z:%f", viewdistance);
+        G_rgb(1, 1, 1);
         G_draw_string(fovstring, 0, 580);
         G_draw_string(camerastring, 0, 560);
         c = G_wait_key();
