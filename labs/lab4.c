@@ -52,7 +52,7 @@ void setup_matrices() {
 
 
 int main(int argc, char const *argv[]) {
-    object3d objs[9];
+    object3d objs[5];
     object3d* obj;
     double moveback[4][4];
     for (int i=1; i<argc; i++) {
@@ -141,9 +141,10 @@ int main(int argc, char const *argv[]) {
         }
         G_rgb(.1, .1, .1);
         G_clear();
-        for (int j=0; j<argc; j++) {
-            draw_object3d(&objs[j], fov, 0);
-        }
+        // for (int j=0; j<argc; j++) {
+        //     draw_object3d(&objs[j], fov, 0);
+        // }
+        draw_object3ds(objs, argc-1, fov, 0);
         char fovstring[128];
         sprintf(fovstring, "Fov: %.3f rad", fov);
         char camerastring[128];
