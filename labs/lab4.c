@@ -12,8 +12,9 @@ lightmodel lm = {.2, .5, 50};
 point3d light_pos = {.5, 1, .1};
 int commandmode = 0;
 int num_objs;
+int inverted[5];
 
-    object3d* obj;
+object3d* obj;
 
 object3d objs[5];
 
@@ -229,10 +230,10 @@ void key_handler() {
                 transform_object3d(obj, z_plus);
                 break;
             case ']':
-                transform_object3d(obj, all_scale_up);
+                object3d_scale(obj, 1.1, 1.1, 1.1);
                 break;
             case '[':
-                transform_object3d(obj, all_scale_down);
+                object3d_scale(obj, 1.0/1.1, 1.0/1.1, 1.0/1.1);
                 break;
             case '=':
                 //viewdistance += .2;
