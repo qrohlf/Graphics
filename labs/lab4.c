@@ -99,9 +99,9 @@ void command_handler() {
             double x, y, z;
             sscanf(position, "%lf %lf %lf", &x, &y, &z);
             if (strcmp(item, "light") == 0) {
-                light_pos.x = x;
-                light_pos.y = y;
-                light_pos.z = z;
+                light_pos.x = -x;
+                light_pos.y = -y;
+                light_pos.z = -z;
             }
             else if (strcmp(item, "camera") == 0) {
                 printf("not yet implemented\n");
