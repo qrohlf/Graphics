@@ -9,7 +9,7 @@
 
 double fov;
 lightmodel lm = {.2, .5, 50};
-point3d light_pos = {.5, 1, .1};
+point3d light_pos = {100, 200, 0};
 int commandmode = 0;
 int num_objs;
 int inverted[5];
